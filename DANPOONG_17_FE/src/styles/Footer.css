@@ -1,0 +1,39 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #A0A0A0;
+    cursor: pointer;
+  }
+  
+  .footer-icon img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+  }
+  
+  .footer-icon p { 
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  .footer-icon.active img,
+  .footer-icon.active p {
+    color: #8B1A10; /* 자주색 */
+  }
+  
+  .footer-icon img,
+  .footer-icon p {
+    transition: color 0.3s;
+  }
+  

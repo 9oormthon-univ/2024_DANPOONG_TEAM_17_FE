@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+  }
+  
+  .logo-image {
+    height: 40px;
+  }
+  
+  .header-language {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .language-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  .language-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    width: 100px;
+    z-index: 10;
+  }
+  
+  .language-dropdown p {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .language-dropdown p:hover {
+    background-color: #ddd;
+  }
+  
