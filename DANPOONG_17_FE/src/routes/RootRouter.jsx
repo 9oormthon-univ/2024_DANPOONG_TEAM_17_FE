@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import AppLayout from '../components/AppLayout';
 import {Home} from '../pages/Home';
 import {Community} from '../pages/Community';
 import {Recipe} from '../pages/Recipe';
@@ -14,20 +15,26 @@ import {My} from '../pages/MyPage';
 const router = createBrowserRouter( [
     {
         path: '/',
-        element: <Home />,
+        element: <AppLayout />,
+        children: [
+            {
+                path: '/',
+                element: <Home />,
+            },
+            {
+                path: '/community',
+                element: <Community />
+            },
+            {
+                path: '/recipe',
+                element: <Recipe />
+            },
+            {
+                path: '/my',
+                element: <My />
+            }
+        ],
     },
-    {
-        path: '/community',
-        element: <Community />
-    },
-    {
-        path: '/recipe',
-        element: <Recipe />
-    },
-    {
-        path: '/my',
-        element: <My />
-    }
 ]);
 
 // router 객체를 컴포넌트로 제공해주기 위한 provider
