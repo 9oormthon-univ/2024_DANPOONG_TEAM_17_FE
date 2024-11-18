@@ -1,0 +1,103 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffffff; /* 배경색 */
+  }
+  
+  .home-content {
+    flex: 1;
+    padding: 16px;
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .header-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 8px;
+  }
+  
+  .subtitle-icon {
+    width: 24px; /* 아이콘 크기 */
+    height: 24px;
+  }
+  
+  .header-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .location-icon {
+    width: 16px; /* 위치 아이콘 크기 */
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .location {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .food-recommendation h2 {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .food-recommendation p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  
+  .filter-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 16px;
+    background-color: #eaeaea;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .food-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .food-item {
+    text-align: center;
+  }
+  
+  .food-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .food-item p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  
