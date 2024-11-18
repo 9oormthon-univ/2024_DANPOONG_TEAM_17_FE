@@ -1,4 +1,4 @@
-.footer {
+  .footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,13 +27,10 @@
     font-size: 12px;
   }
   
-  .footer-icon.active img,
-  .footer-icon.active p {
-    color: #8B1A10; /* 자주색 */
+  .footer-icon.active {
+    color: #8B1A10;
   }
   
-  .footer-icon img,
-  .footer-icon p {
-    transition: color 0.3s;
+  .footer-icon.active img {
+    filter: none;
   }
-  
