@@ -1,4 +1,4 @@
-import './FoodDetailModal.css';
+import './foodDetailModal.css';
 
 const FoodDetailModal = ({ food, onClose }) => {
   if (!food) return null; // 음식 정보가 없으면 모달을 렌더링하지 않음
