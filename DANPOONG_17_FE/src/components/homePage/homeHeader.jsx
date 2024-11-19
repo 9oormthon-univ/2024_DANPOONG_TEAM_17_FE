@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import subtitleIcon from "../../assets/home/logo2.png";
 import locationIcon from "../../assets/home/place.png";
-import "./HomeHeader.css";
+import "./homeHeader.css";
 
 const HomeHeader = () => {
 
