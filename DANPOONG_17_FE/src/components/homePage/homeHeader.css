@@ -8,23 +8,26 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    justify-content: space-between;
   }
   
   .subtitle {
     font-size: 18px;
     font-weight: bold;
     color: #333;
+    line-height: 1.5;
+    text-align: left;
   }
   
   .subtitle-icon {
-    width: 24px;
-    height: 24px;
+    width: 100px;
+    height: 100px;
   }
   
   .header-location {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     margin-top: 10px;
     gap: 5px;
   }

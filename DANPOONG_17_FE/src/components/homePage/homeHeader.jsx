@@ -55,7 +55,7 @@ const HomeHeader = () => {
   return (
     <header className="home-header">
       <div className="header-subtitle">
-        <p className="subtitle">밥상에서 시작되는 한국 생활</p>
+        <p className="subtitle">밥상에서<br></br>시작되는 한국 생활</p>
         <img src={subtitleIcon} alt="Subtitle Icon" className="subtitle-icon" />
       </div>
       <div className="header-location">

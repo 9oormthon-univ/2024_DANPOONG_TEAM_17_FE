@@ -5,6 +5,7 @@ import FoodDetailModal from '../components/homePage/foodDetailModal';
 import HomeHeader from '../components/homePage/homeHeader';
 
 import dummy_img from '../assets/dummy/계란찜.jpg';
+import cameraIcon from '../assets/home/camera2.png';
 
 export const Home = () => {
   const [foods, setFoods] = useState([]); // 음식 리스트 상태
@@ -96,6 +97,11 @@ export const Home = () => {
           </div>
         </section>
       </main>
+
+      <button className="camera-button">
+        <img src={cameraIcon} alt="Camera Icon" />
+      </button>
+
       <FoodDetailModal food={selectedFood} onClose={() => setSelectedFood(null)} />
     </div>
   );
