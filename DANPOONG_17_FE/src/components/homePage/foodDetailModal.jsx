@@ -1,5 +1,6 @@
 import './foodDetailModal.css';
 import PropTypes from "prop-types";
+import imageMap from './imageMap';
 
 const FoodDetailModal = ({ food, onClose }) => {
   if (!food) {
@@ -14,8 +15,8 @@ const FoodDetailModal = ({ food, onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>X</button>
         <h2>{food.name}</h2>
-        <p>{food.description}</p>
-        <img src={food.img} alt={food.name} className="food-image" />
+        <p>{food.explanation}</p>
+        <img src={imageMap[food.name]} alt={food.name} className="food-image" />
         <div className="food-details">
           <h3>재료</h3>
           <p>{food.ingredients}</p>
@@ -31,9 +32,8 @@ const FoodDetailModal = ({ food, onClose }) => {
 
 FoodDetailModal.propTypes = {
   food: PropTypes.shape({
-    img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    explanation: PropTypes.string.isRequired,
     ingredients: PropTypes.string.isRequired,
   }),
   onClose: PropTypes.func.isRequired,

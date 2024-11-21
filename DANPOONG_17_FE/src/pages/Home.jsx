@@ -1,60 +1,63 @@
 import { useState, useEffect } from 'react';
+import { apiUrl } from '../axios/apiUrl';
 import Header from '../components/Header';
 import '../styles/HomePage.css';
 import FoodDetailModal from '../components/homePage/foodDetailModal';
 import HomeHeader from '../components/homePage/homeHeader';
+import imageMap from '../components/homePage/imageMap';
 
-import dummy_img from '../assets/dummy/계란찜.jpg';
+//import dummy_img from '../assets/dummy/계란찜.jpg';
 import cameraIcon from '../assets/home/camera2.png';
 
 export const Home = () => {
   const [foods, setFoods] = useState([]); // 음식 리스트 상태
   const [selectedFood, setSelectedFood] = useState(null); // 선택된 음식 상태
-  const [filteredFoods, setFilteredFoods] = useState([]); // 필터링된 음식 리스트 상태
   const [selectedIngredients, setSelectedIngredients] = useState([]); // 선택된 음식 상태
 
   // 더미 데이터
-  const dummyData = [
-    { id: 1, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-    { id: 2, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-    { id: 3, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-    { id: 4, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-  ];
+  // const dummyData = [
+  //   { id: 1, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
+  //   { id: 2, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
+  //   { id: 3, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
+  //   { id: 4, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
+  // ];
+
+    const fetchFoods = async () => {
+      try {
+
+        const params = {
+          keyword: '""',
+          filter: "exclude",
+          isIngredients: true,
+        }
+
+        console.log("Request params:", params);
+        const response = await apiUrl.get('/api/foods/search', {params}); // authHttp 사용
+        const foodData = response.data.content;
+        
+        console.log("Fetched foods:", foodData);
+        setFoods(foodData); // API 응답 데이터를 foods 상태로 설정
+      } catch (error) {
+        console.error('Failed to fetch foods:', error);
+      }
+    }
+
 
   useEffect(() => {
-    // 현재는 더미 데이터를 사용
-    setFoods(dummyData);
-    setFilteredFoods(dummyData);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchFoods();
   }, []);
 
   // 재료 버튼 클릭 핸들러
   const handleIngredientClick = (ingredient) => {
     setSelectedIngredients((prev) => {
-      if (prev.includes(ingredient)) {
-        return prev.filter((item) => item !== ingredient); // 이미 선택된 재료는 제거
-      } else {
-        return [...prev, ingredient]; // 새로 선택된 재료는 추가
-      }
+      const updatedIngredients = prev.includes(ingredient)
+        ? prev.filter((item) => item !== ingredient) // 선택된 재료를 제거
+        : [...prev, ingredient]; // 새 재료를 추가
+
+      fetchFoods(updatedIngredients); // 선택된 재료로 API 호출
+      return updatedIngredients; // 상태 업데이트
     });
   };
-
-  useEffect(() => {
-    if (!foods || !Array.isArray(foods)) {
-      setFilteredFoods([]); // foods가 유효하지 않으면 빈 배열로 설정
-      return;
-    }
-  
-    const newFilteredFoods = foods.filter((food) => {
-      if (!food || typeof food !== "object") return false; // food가 객체가 아닌 경우 제외
-      const foodIngredients = typeof food.ingredients === "string" ? food.ingredients : ""; // ingredients 기본값 설정
-      return !selectedIngredients.some((ingredient) =>
-        foodIngredients.includes(ingredient)
-      );
-    });
-  
-    setFilteredFoods(newFilteredFoods);
-  }, [selectedIngredients, foods]);
 
   return (
     <div className="home">
@@ -66,7 +69,7 @@ export const Home = () => {
           <h2>미르미님을 위한 오늘의 음식 추천</h2>
           <p>제외하고 싶은 재료를 아래에서 선택해보세요</p>
           <div className="filter-buttons">
-            {["소고기", "돼지고기", "닭고기", "해산물", "달걀", "우유"].map((ingredient) => (
+            {["소고기", "돼지고기", "닭고기", "해산물", "마늘", "우유"].map((ingredient) => (
               <button
                 key={ingredient}
                 onClick={() => handleIngredientClick(ingredient)}
@@ -81,18 +84,21 @@ export const Home = () => {
 
           
           <div className="food-list">
-            {filteredFoods.length > 0 ? (
-              filteredFoods.map((food) => (
+            {foods.length > 0 ? (
+              foods.map((food, index) => (
                 <div
-                  key={food.id}
+                  key={index}
                   className="food-item"
                   onClick={() => {
-                    //console.log(food);
-                    //console.log("Setting selectedFood:", food);
+                    console.log("Selected food:", food);
                     setSelectedFood(food)}}
                 >
-                  <img src={food.img} alt={food.name} />
+                  <img
+                    src={imageMap[food.name]} // imagePath가 없으면 기본 이미지 사용
+                    alt={food.name}
+                  />
                   <p>{food.name}</p>
+                  <p className="food-description">{food.explanation}</p>
                 </div>
               ))
             ) : (
