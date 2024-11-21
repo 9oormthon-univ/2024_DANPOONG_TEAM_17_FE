@@ -19,6 +19,7 @@
     width: 90%;
     max-width: 400px;
     position: relative;
+    color: #000000;
   }
   
   .close-button {
@@ -29,6 +30,7 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
+    color: #000000;
   }
   
   .food-image {

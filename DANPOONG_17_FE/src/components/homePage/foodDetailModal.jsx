@@ -1,8 +1,14 @@
 import './foodDetailModal.css';
+import PropTypes from "prop-types";
 
 const FoodDetailModal = ({ food, onClose }) => {
-  if (!food) return null; // 음식 정보가 없으면 모달을 렌더링하지 않음
+  if (!food) {
+    console.log("Food is null or undefined");
+    return null
+  }; // 음식 정보가 없으면 모달을 렌더링하지 않음
 
+  console.log("FoodDetailModal received food:", food);
+  
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -21,6 +27,16 @@ const FoodDetailModal = ({ food, onClose }) => {
       </div>
     </div>
   );
+};
+
+FoodDetailModal.propTypes = {
+  food: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    ingredients: PropTypes.string.isRequired,
+  }),
+  onClose: PropTypes.func.isRequired,
 };
 
 export default FoodDetailModal;

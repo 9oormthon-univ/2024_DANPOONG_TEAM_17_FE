@@ -25,6 +25,7 @@ export const Home = () => {
     // 현재는 더미 데이터를 사용
     setFoods(dummyData);
     setFilteredFoods(dummyData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 재료 버튼 클릭 핸들러
@@ -85,7 +86,10 @@ export const Home = () => {
                 <div
                   key={food.id}
                   className="food-item"
-                  onClick={() => setSelectedFood(food)}
+                  onClick={() => {
+                    //console.log(food);
+                    //console.log("Setting selectedFood:", food);
+                    setSelectedFood(food)}}
                 >
                   <img src={food.img} alt={food.name} />
                   <p>{food.name}</p>
@@ -102,7 +106,9 @@ export const Home = () => {
         <img src={cameraIcon} alt="Camera Icon" />
       </button>
 
-      <FoodDetailModal food={selectedFood} onClose={() => setSelectedFood(null)} />
+      <FoodDetailModal food={selectedFood} onClose={() => {
+        console.log("Closing modal");
+        setSelectedFood(null)}} />
     </div>
   );
 };
