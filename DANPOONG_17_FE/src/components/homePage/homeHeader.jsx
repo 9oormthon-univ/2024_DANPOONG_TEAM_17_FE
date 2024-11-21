@@ -4,53 +4,53 @@ import locationIcon from "../../assets/home/place.png";
 import "./homeHeader.css";
 
 const HomeHeader = () => {
+  const [location, setLocation] = useState("위치를 가져오는 중...");
 
-    const [location, setLocation] = useState("위치를 가져오는 중...");
-
-    useEffect(() => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            fetchAddress(latitude, longitude); // 위도와 경도를 주소로 변환
-          },
-          (error) => {
-            console.error("Error fetching location:", error);
-            setLocation("위치를 확인할 수 없습니다.");
-          }
-        );
-      } else {
-        setLocation("Geolocation을 지원하지 않는 브라우저입니다.");
-      }
-    }, []);
-
-    // 위치 정보를 위한 API 설정
-    const fetchAddress = async (lat, lng) => {
-        try {
-          const response = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`
-          );
-          const data = await response.json();
-          const address = data.address;
-          
-          const city = address.city || address.town || address.village || null;
-          const district = address.state_district || address.county || null;
-          const road = address.road || null;
-
-          const parts = [
-            city && `${city}시`,
-            district,
-            road,
-          ].filter(Boolean); // null 또는 undefined를 제외
-      
-          // 주소를 하나의 문자열로 합침
-          const locationText = parts.join(" ");
-          setLocation(locationText);
-        } catch (error) {
-          console.error("Error fetching address:", error);
-          setLocation("주소를 가져올 수 없습니다.");
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetchAddress(latitude, longitude); // Kakao API를 통해 주소 변환
+        },
+        (error) => {
+          console.error("Error fetching location:", error);
+          setLocation("위치를 확인할 수 없습니다.");
         }
-      };
+      );
+    } else {
+      setLocation("Geolocation을 지원하지 않는 브라우저입니다.");
+    }
+  }, []);
+
+  const REST_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
+
+  // Kakao API로 위치 정보를 가져오는 함수
+  const fetchAddress = async (lat, lng) => {
+    //const REST_API_KEY = "f66d7b025326db5bcc03a2f86469ae90"; // Kakao REST API 키 입력
+    try {
+      const response = await fetch(
+        `https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`,
+        {
+          headers: {
+            Authorization: `KakaoAK ${REST_API_KEY}`, // 인증 헤더 추가
+          },
+        }
+      );
+      const data = await response.json();
+
+      if (data.documents && data.documents.length > 0) {
+        const address = data.documents[0].address;
+        const locationText = `${address.region_1depth_name} ${address.region_2depth_name} ${address.region_3depth_name}`;
+        setLocation(locationText);
+      } else {
+        setLocation("주소를 가져올 수 없습니다.");
+      }
+    } catch (error) {
+      console.error("Error fetching address from Kakao API:", error);
+      setLocation("주소를 가져올 수 없습니다.");
+    }
+  };
 
   return (
     <header className="home-header">
