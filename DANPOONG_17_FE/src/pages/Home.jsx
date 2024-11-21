@@ -22,11 +22,11 @@ export const Home = () => {
   //   { id: 4, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
   // ];
 
-    const fetchFoods = async () => {
+    const fetchFoods = async (excludedIngredients = '') => {
       try {
-
+        const keyword = excludedIngredients ? excludedIngredients.join(',') : '""';
         const params = {
-          keyword: '""',
+          keyword,
           filter: "exclude",
           isIngredients: true,
         }
@@ -43,6 +43,7 @@ export const Home = () => {
     }
 
 
+
   useEffect(() => {
     fetchFoods();
   }, []);
@@ -54,7 +55,11 @@ export const Home = () => {
         ? prev.filter((item) => item !== ingredient) // 선택된 재료를 제거
         : [...prev, ingredient]; // 새 재료를 추가
 
-      fetchFoods(updatedIngredients); // 선택된 재료로 API 호출
+        if (updatedIngredients.length === 0) {
+          fetchFoods(); // 초기 데이터 호출
+        } else {
+          fetchFoods(updatedIngredients); // 선택된 재료로 API 호출
+        }
       return updatedIngredients; // 상태 업데이트
     });
   };
