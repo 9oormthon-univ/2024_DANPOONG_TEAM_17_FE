@@ -27,7 +27,6 @@ const HomeHeader = () => {
 
   // Kakao API로 위치 정보를 가져오는 함수
   const fetchAddress = async (lat, lng) => {
-    //const REST_API_KEY = "f66d7b025326db5bcc03a2f86469ae90"; // Kakao REST API 키 입력
     try {
       const response = await fetch(
         `https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${lng}&y=${lat}`,
