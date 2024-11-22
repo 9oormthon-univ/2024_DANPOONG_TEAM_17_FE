@@ -7,17 +7,20 @@
   }
   
   .search-header {
+    display: flex;
+    align-items: center;
     margin-bottom: 16px;
+    gap: 8px;
   }
   
   .search-bar {
     display: flex;
     align-items: center;
-    gap: 8px;
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 16px;
     background-color: #f9f9f9;
+    flex: 1;
   }
   
   .search-icon {
@@ -33,6 +36,18 @@
     font-size: 14px;
   }
 
+  .back-btn {
+    background: none;
+    border: none;
+    margin-right: 8px;
+  }
+
+  .back-btn img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
   .clear-btn {
     background: none;
     border: none;
@@ -42,6 +57,25 @@
   .clear-btn img {
     width: 16px;
     height: 16px;
+  }
+
+  .filtered-results {
+    margin-top: 16px;
+  }
+  
+  .filtered-item {
+    font-size: 16px;
+    display: block;
+    margin: 8px 0;
+    text-align: left;
+  }
+  
+  .black-text {
+    color: #333;
+  }
+  
+  .red-text {
+    color: #8b1a10;
   }
   
   .recent-search h2,
