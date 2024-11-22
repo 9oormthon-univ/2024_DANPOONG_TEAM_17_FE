@@ -1,0 +1,87 @@
+.mypage {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+    min-height: 100vh;
+    box-sizing: border-box; /* 패딩 포함 */
+  }
+  
+  /* User Section */
+  .user-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .user-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 12px;
+    color: #333;
+  }
+  
+  /* Icon Section */
+  .icon-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 286px; /* 너비 고정 */
+    margin-bottom: 24px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 16px;
+  }
+  
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    flex: 1;
+  }
+  
+  .icon-image {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .icon-item p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* List Section */
+  .list-section {
+    width: 100%;
+    max-width: 286px; /* 너비 고정 */
+  }
+  
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .list-item p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .arrow-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
