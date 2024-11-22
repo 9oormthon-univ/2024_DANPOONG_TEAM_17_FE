@@ -1,14 +1,24 @@
 import './foodDetailModal.css';
 import PropTypes from "prop-types";
+import { useNavigate } from 'react-router-dom';
 import imageMap from './imageMap';
 
 const FoodDetailModal = ({ food, onClose }) => {
+  const navigate = useNavigate();
   if (!food) {
     console.log("Food is null or undefined");
     return null
   }; // 음식 정보가 없으면 모달을 렌더링하지 않음
 
-  console.log("FoodDetailModal received food:", food);
+  const handleRecipeClick = () => {
+    navigate('/search'); // /search 경로로 이동
+  };
+
+  const handleNearbyRestaurantsClick = async () => {
+    const query = encodeURIComponent(food.name);
+    const kakaoMapUrl = `https://map.kakao.com/?q=${query}`;
+    window.open(kakaoMapUrl, "_blank");
+  };
   
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -22,8 +32,8 @@ const FoodDetailModal = ({ food, onClose }) => {
           <p>{food.ingredients}</p>
         </div>
         <div className="modal-actions">
-          <button className="action-button">근처 식당</button>
-          <button className="action-button">레시피</button>
+          <button className="action-button" onClick={handleNearbyRestaurantsClick}>근처 식당</button>
+          <button className="action-button" onClick={handleRecipeClick}>레시피</button>
         </div>
       </div>
     </div>
