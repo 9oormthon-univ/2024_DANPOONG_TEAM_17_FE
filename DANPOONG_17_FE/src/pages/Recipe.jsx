@@ -1,21 +1,19 @@
 //import { useState, useEffect } from 'react';
 import PopularRecipes from '../components/recipePage/PopularRecipe';
 import '../styles/RecipePage.css';
+import { useNavigate } from 'react-router-dom';
 
 import mark_off from "../assets/recipe/mark_off.png"
 //import mark_on from "../assets/recipe/mark_on.png"
 import searchIcon from "../assets/recipe/search.png"
 
-// export function Recipe() {
-//     return (
-//       <div>
-//         <h1>Recipe Page</h1>
-//         <p>레시피 페이지</p>
-//       </div>
-//     );
-// }
-
 export const Recipe = () => {
+
+  const navigate = useNavigate(); // useNavigate 훅 사용
+
+  const handleSearchClick = () => {
+    navigate('/recipe/search'); // 검색 페이지로 이동
+  };
 
   // 더미 데이터
   const recentRecipes = [
@@ -28,7 +26,7 @@ export const Recipe = () => {
     <div className="recipe-page">
       {/* 검색 섹션 */}
       <header className="recipe-header">
-        <div className="search-container">
+        <div className="search-container" onClick={handleSearchClick}>
           <img src={searchIcon} alt="검색" className="search-icon" />
           <input type="text" placeholder="검색어를 입력하세요" className="search-input" />
         </div>

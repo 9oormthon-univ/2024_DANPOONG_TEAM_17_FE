@@ -1,0 +1,97 @@
+.recip-search-page {
+    padding: 16px;
+    background-color: #ffffff;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    width: 500px;
+  }
+  
+  .search-header {
+    margin-bottom: 16px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  .search-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+  }
+
+  .clear-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .clear-btn img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .recent-search h2,
+  .popular-search h2 {
+    font-size: 16px;
+    color: #8b1a10;
+    margin-bottom: 8px;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .tag {
+    background-color: #f5f5f5;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .tag-close {
+    font-size: 12px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .popular-search .popular-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .keyword-item {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .keyword-rank {
+    font-size: 14px;
+    color: #8b1a10;
+    font-weight: bold;
+  }
+  
