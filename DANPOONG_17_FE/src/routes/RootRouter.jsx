@@ -5,6 +5,7 @@ import {Home} from '../pages/Home';
 import {Community} from '../pages/Community';
 import {Recipe} from '../pages/Recipe';
 import {My} from '../pages/MyPage';
+import {Search} from '../pages/RecipeSearch';
 
 /*
     < 중첩 라우터 관리 >
@@ -32,6 +33,10 @@ const router = createBrowserRouter( [
             {
                 path: '/my',
                 element: <My />
+            },
+            {
+                path: '/search',
+                element: <Search />
             }
         ],
     },

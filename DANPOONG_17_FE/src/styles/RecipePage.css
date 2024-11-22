@@ -1,134 +1,148 @@
 /* 공통 */
 .recipe-page {
-    padding: 16px;
-    background-color: #fff;
-  }
-  
-  h2 {
-    margin-bottom: 12px;
-    font-size: 18px;
-    color: #8b1a10;
-  }
-  
-  /* 검색 섹션 */
-  .recipe-header {
-    margin-bottom: 24px;
-  }
-  
-  .search-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .search-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .search-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 16px;
-  }
-  
-  .write-button {
-    padding: 8px 12px;
-    background-color: #8b1a10;
-    color: white;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-  }
-  
-  .filter-buttons {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  
-  .filter-buttons button {
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 16px;
-    background-color: #f5f5f5;
-    cursor: pointer;
-  }
-  
-  /* 인기 레시피 */
-  .popular-recipes .recipe-list {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .recipe-card {
-    width: 150px;
-    padding: 12px;
-    background-color: #eaeaea;
-    border-radius: 8px;
-    position: relative;
-  }
-  
-  .bookmark-icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
-  
-  /* 최근 레시피 */
-  .recent-recipes {
-    margin-top: 24px;
-  }
-  
-  .recent-recipe-card {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-  }
-  
-  .recent-recipe-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .author-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .author-avatar {
-    width: 32px;
-    height: 32px;
-    background-color: #ccc;
-    border-radius: 50%;
-  }
-  
-  .recipe-thumbnail {
-    width: 80px;
-    height: 80px;
-    background-color: #eaeaea;
-  }
-  
-  .recipe-details {
-    flex: 1;
-    padding: 0 8px;
-  }
-  
-  .recipe-tags {
-    display: flex;
-    gap: 8px;
-    margin-top: 4px;
-  }
-  
-  .recipe-tag {
-    padding: 4px 8px;
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    font-size: 12px;
-  }
-  
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff; /* 배경색 */
+}
+
+.recent-recipe-card {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-recipe-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b1a10;
+}
+
+.time-info {
+  font-size: 12px;
+  color: #777;
+}
+
+.recipe-thumbnail {
+  width: 100%;
+  height: 150px;
+  background-color: #eaeaea;
+  border-radius: 12px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.recipe-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 16px;
+}
+
+.recipe-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.recipe-tag {
+  padding: 6px 12px;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
+.bookmark-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.recipe-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지가 영역에 맞도록 조정 */
+  border-radius: 12px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f5f5f5;
+  border-radius: 24px;
+  margin-bottom: 16px;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: #8b1a10; /* 검색 아이콘 색상 */
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: transparent;
+  color: #333; /* 텍스트 색상 */
+}
+
+.write-button {
+  padding: 8px 16px;
+  background-color: #8b1a10; /* 버튼 배경색 */
+  color: #fff; /* 버튼 텍스트 색상 */
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-buttons button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333; /* 텍스트 색상 */
+}
+
+.filter-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import mark_off from "../../assets/recipe/mark_off.png";
 import mark_on from "../../assets/recipe/mark_on.png";
+import './PopularRecipe.css';
 
 const PopularRecipes = () => {
   // 더미 데이터
@@ -15,6 +16,7 @@ const PopularRecipes = () => {
 
   // 북마크 상태 변경 핸들러
   const toggleBookmark = (id) => {
+    console.log("Toggling bookmark for recipe with id:", id);
     setRecipes((prevRecipes) =>
       prevRecipes.map((recipe) =>
         recipe.id === id
@@ -34,7 +36,9 @@ const PopularRecipes = () => {
             <p>{recipe.description}</p>
             <button
               className="bookmark-btn"
-              onClick={() => toggleBookmark(recipe.id)}
+              onClick={() => {
+                console.log(`Clicked bookmark for recipe id: ${recipe.id}`);
+                toggleBookmark(recipe.id)}}
             >
               <img
                 src={recipe.bookmarked ? mark_on : mark_off}
