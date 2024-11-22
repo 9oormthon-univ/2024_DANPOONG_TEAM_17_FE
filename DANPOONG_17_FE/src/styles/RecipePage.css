@@ -140,9 +140,3 @@
   color: #333; /* 텍스트 색상 */
 }
 
-.filter-buttons-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 8px;
-}
