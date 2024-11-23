@@ -26,6 +26,11 @@ const Header = () => {
     useEffect(() => {
       // 페이지가 로드될 때 localStorage에 저장된 언어로 설정
       const storedLanguage = localStorage.getItem("i18nextLng");
+      if (storedLanguage === "ko") {
+        setSelectedLanguage("한국어");
+      } else if (storedLanguage === "en") {
+        setSelectedLanguage("English");
+      }
       if (storedLanguage) {
         i18n.changeLanguage(storedLanguage); // 저장된 언어로 i18next 설정
       }

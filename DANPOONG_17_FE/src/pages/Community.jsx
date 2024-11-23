@@ -10,24 +10,27 @@ import popular1 from '../assets/community/popular1.jpg';
 import popular2 from '../assets/community/popular2.jpg';
 import popular3 from '../assets/community/popular3.jpg';
 
+import { useTranslation } from 'react-i18next';
+
 export const Community = () => {
+  const { t } = useTranslation();
   const sections = [
     {
-      title: '쿠킹 클래스',
+      title: t("Community.cooking_Class"),
       description:
-        '세계 각국의 요리를 배울 수 있는 쿠킹클래스! 다양한 문화를 직접 체험하며 새로운 요리 스킬을 익혀보세요.',
+      t("Community.cooking_Class_description"),
       images: [class1, class2, class3], // 이미지 파일명
     },
     {
-      title: '함께 요리하기',
+      title: t("Community.together"),
       description:
-        '같이 요리하며 새로운 친구를 만나보세요! 다양한 국적의 사람들과 함께 요리하며 문화와 맛의 교류를 즐길 수 있습니다.',
+      t("Community.together_description"),
       images: [together1, together2, together3],
     },
     {
-      title: '맛집 탐방하기',
+      title: t("Community.exploring"),
       description:
-        '혼자 가기 망설여졌던 맛집, 이제 동네 친구와 함께 도전해보세요! 식사를 통해 새로운 인연을 만들어보세요.',
+      t("Community.exploring_description"),
       images: [popular1, popular2, popular3],
     },
   ];
@@ -39,7 +42,7 @@ export const Community = () => {
         <div key={index} className="community-section">
           <div className="section-header">
             <h2>{section.title}</h2>
-            <button className="view-more-btn">전체보기</button>
+            <button className="view-more-btn">{t("Community.view_more_btn")}</button>
           </div>
           <p className="section-description">{section.description}</p>
           <div className="section-images">

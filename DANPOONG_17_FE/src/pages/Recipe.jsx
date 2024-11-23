@@ -106,8 +106,6 @@ export const Recipe = () => {
         </div>
       </header>
 
-      <PopularRecipes />
-
       <section className="recent-recipes">
         <h2>{t("Recipe.recent_recipes")}</h2>
         {isLoading ? (
