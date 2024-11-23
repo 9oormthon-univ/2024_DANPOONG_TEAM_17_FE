@@ -9,6 +9,7 @@
   margin-bottom: 16px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: relative; /* 북마크 아이콘 위치 설정 */
+  width: 500;
 }
 
 .recent-recipe-header {
@@ -117,18 +118,18 @@
 }
 
 /* 필터 버튼 컨테이너 */
-.filter-buttons-container {
+.recipe-filter-buttons-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.filter-buttons {
+.recipe-filter-buttons {
   display: flex;
   gap: 8px;
 }
 
-.filter-buttons button {
+.recipe-filter-buttons button {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-radius: 16px;

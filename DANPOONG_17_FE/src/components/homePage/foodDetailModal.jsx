@@ -1,7 +1,6 @@
 import './foodDetailModal.css';
 import PropTypes from "prop-types";
 import { useNavigate } from 'react-router-dom';
-import imageMap from './imageMap';
 
 const FoodDetailModal = ({ food, onClose }) => {
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ const FoodDetailModal = ({ food, onClose }) => {
         <button className="close-button" onClick={onClose}>X</button>
         <h2>{food.name}</h2>
         <p>{food.explanation}</p>
-        <img src={imageMap[food.name]} alt={food.name} className="food-image" />
+        <img src={food.imagePath} alt={food.name} className="food-image" />
         <div className="food-details">
           <h3>재료</h3>
           <p>{food.ingredients}</p>

@@ -67,17 +67,19 @@
   .filter-buttons {
     display: flex;
     gap: 8px;
-    margin: 16px 0;
-    flex-wrap: wrap;
+    white-space: nowrap;
   }
   
   .filter-buttons button {
-    padding: 8px 12px;
+    padding: 6px 12px;
     border: none;
     border-radius: 16px;
     background-color: #8B1A10 !important;
+    text-align: center; /* 텍스트 가운데 정렬 */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
     color: #333;
     cursor: pointer;
+    font-size: 14px;
   }
 
   .filter-button {

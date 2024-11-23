@@ -44,8 +44,8 @@ export const Recipe = () => {
           <img src={searchIcon} alt="검색" className="search-icon" />
           <input type="text" placeholder="검색어를 입력하세요" className="search-input" />
         </div>
-        <div className="filter-buttons-container">
-          <div className="filter-buttons">
+        <div className="recipe-filter-buttons-container">
+          <div className="recipe-filter-buttons">
             <button>나라</button>
             <button>난이도</button>
           </div>
