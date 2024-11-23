@@ -31,8 +31,6 @@ const Header = () => {
             <div className="language-dropdown">
               <p onClick={() => handleLanguageSelect('한국어')}>한국어</p>
               <p onClick={() => handleLanguageSelect('English')}>English</p>
-              <p onClick={() => handleLanguageSelect('中文')}>中文</p>
-              <p onClick={() => handleLanguageSelect('日本語')}>日本語</p>
             </div>
           )}
         </div>
