@@ -1,4 +1,5 @@
 import '../styles/RecipeSearchResult.css';
+import { apiUrl } from '../axios/apiUrl';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -12,7 +13,7 @@ export const RecipeSearchResult = () => {
   const searchQuery = queryParams.get('query'); // URL에서 검색어 추출
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(searchQuery || '');
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -35,14 +36,15 @@ export const RecipeSearchResult = () => {
     const fetchResults = async () => {
       try {
         setIsLoading(true);
-        // API 요청으로 실제 데이터를 가져오는 코드 작성
-        const dummyResults = [
-          { id: 1, title: '육개장', author: '미르미1113', date: '2024.10.29' },
-          { id: 2, title: '고사리 육개장', author: '미르미1113', date: '2024.10.29' },
-          { id: 3, title: '육개장 칼국수', author: '미르미1113', date: '2024.10.29' },
-          { id: 4, title: '육개장', author: '미르미1113', date: '2024.10.29' },
-        ];
-        setResults(dummyResults);
+        const response = await apiUrl.get('/api/recipes'); // 백엔드 API 호출
+        const allRecipes = response.data.content; // 백엔드에서 가져온 레시피 데이터
+
+        // 검색어에 따라 레시피 필터링
+        const filteredRecipes = allRecipes.filter((recipe) =>
+          recipe.title.includes(searchQuery) // 검색어가 포함된 레시피만 반환
+        );
+
+        setResults(filteredRecipes); // 필터링된 결과 설정
       } catch (error) {
         console.error('Failed to fetch results:', error);
       } finally {
@@ -50,7 +52,9 @@ export const RecipeSearchResult = () => {
       }
     };
 
-    fetchResults();
+    if (searchQuery) {
+      fetchResults(); // 검색어가 있을 경우에만 호출
+    }
   }, [searchQuery]); // 검색어가 변경될 때마다 호출
 
   
@@ -95,11 +99,19 @@ export const RecipeSearchResult = () => {
         ) : (
           results.map((result) => (
             <div key={result.id} className="result-item">
-              <div className="result-thumbnail" />
+              <div className="result-thumbnail">
+                <img
+                  src={result.imagePath}
+                  alt={result.title}
+                  className="thumbnail-image"
+                />
+              </div>
               <div className="result-info">
                 <h3 className="result-title">{result.title}</h3>
-                <p className="result-author">{result.author}</p>
-                <p className="result-date">{result.date}</p>
+                <p className="result-author">작성자: 미르미</p>
+                <p className="result-date">
+                  등록일: {new Date(result.createdAt).toLocaleDateString()}
+                </p>
               </div>
             </div>
           ))

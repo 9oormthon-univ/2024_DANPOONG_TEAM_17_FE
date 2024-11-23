@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import '../styles/HomePage.css';
 import FoodDetailModal from '../components/homePage/foodDetailModal';
 import HomeHeader from '../components/homePage/homeHeader';
-import imageMap from '../components/homePage/imageMap';
+//import imageMap from '../components/homePage/imageMap';
 
 //import dummy_img from '../assets/dummy/계란찜.jpg';
 import cameraIcon from '../assets/home/camera2.png';
@@ -99,7 +99,7 @@ export const Home = () => {
                     setSelectedFood(food)}}
                 >
                   <img
-                    src={imageMap[food.name]} // imagePath가 없으면 기본 이미지 사용
+                    src={food.imagePath} // imagePath가 없으면 기본 이미지 사용
                     alt={food.name}
                   />
                   <p>{food.name}</p>
