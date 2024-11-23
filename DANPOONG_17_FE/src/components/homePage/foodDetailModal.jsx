@@ -5,19 +5,20 @@ import imageMap from './imageMap';
 
 const FoodDetailModal = ({ food, onClose }) => {
   const navigate = useNavigate();
+
   if (!food) {
     console.log("Food is null or undefined");
     return null
   }; // 음식 정보가 없으면 모달을 렌더링하지 않음
 
-  const handleRecipeClick = () => {
-    navigate('/search'); // /search 경로로 이동
-  };
-
   const handleNearbyRestaurantsClick = async () => {
     const query = encodeURIComponent(food.name);
     const kakaoMapUrl = `https://map.kakao.com/?q=${query}`;
     window.open(kakaoMapUrl, "_blank");
+  };
+
+  const handleRecipeClick = () => {
+    navigate(`/recipe/search/result?query=${encodeURIComponent(food.name)}`);
   };
   
   return (
