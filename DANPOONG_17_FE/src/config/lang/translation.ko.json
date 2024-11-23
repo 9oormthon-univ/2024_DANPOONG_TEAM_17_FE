@@ -25,7 +25,9 @@
         "no_food" : "추천할 음식이 없습니다."
     },
     "HomeFoodDetailModalader": {
-
+        "ingredients" : "재료",
+        "nearbyRestaurants" : "근처 식당",
+        "recipe" : "레시피"
     },
     "Recipe": {
 

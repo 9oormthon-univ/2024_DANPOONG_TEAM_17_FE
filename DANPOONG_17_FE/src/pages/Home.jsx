@@ -55,7 +55,6 @@ export const Home = () => {
           isIngredients: true,
         }
 
-        console.log("Request params:", params);
         const response = await apiUrl.get('/api/foods/search', {params}); // authHttp 사용
         const foodData = response.data.content;
         
@@ -131,9 +130,7 @@ export const Home = () => {
                 <div
                   key={index}
                   className="food-item"
-                  onClick={() => {
-                    console.log("Selected food:", food);
-                    setSelectedFood(food)}}
+                  onClick={() => setSelectedFood(food)}
                 >
                   <img
                     src={food.imagePath} // imagePath가 없으면 기본 이미지 사용
@@ -153,10 +150,12 @@ export const Home = () => {
         <img src={cameraIcon} alt="Camera Icon" />
       </button>
 
-      <FoodDetailModal food={selectedFood} onClose={() => {
-        console.log("Closing modal");
-        setSelectedFood(null)}}
+      {selectedFood && (
+        <FoodDetailModal
+          food={selectedFood}
+          onClose={() => setSelectedFood(null)}
         />
+      )}
     </div>
   );
 };

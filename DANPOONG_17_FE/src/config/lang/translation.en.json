@@ -25,7 +25,9 @@
         "no_food" : "No recommended food available."
     },
     "HomeFoodDetailModalader": {
-
+        "ingredients": "Ingredients",
+        "nearbyRestaurants": "Nearby Restaurants",
+        "recipe": "Recipe"
     },
     "Recipe": {
 
