@@ -13,6 +13,17 @@
         "subTitle1": "Life starts at",
         "subTitle2": "the table in Korea"
     },
+    "Home": {
+        "home_ingredient1" : "Today's food recommendation for you, Mir-mi",
+        "home_ingredient2" : "Tap the filters below to exclude ingredients",
+        "ingredient_btn_1" : "Beef",
+        "ingredient_btn_2" : "Pork",
+        "ingredient_btn_3" : "Chicken",
+        "ingredient_btn_4" : "Seafood",
+        "ingredient_btn_5" : "Egg",
+        "ingredient_btn_6" : "Milk",
+        "no_food" : "No recommended food available."
+    },
     "HomeFoodDetailModalader": {
 
     },
