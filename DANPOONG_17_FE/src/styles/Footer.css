@@ -5,6 +5,10 @@
     padding: 10px 0;
     background-color: #ffffff;
     border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 500px;
+    z-index: 1000;
   }
   
   .footer-icon {
