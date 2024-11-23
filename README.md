@@ -1,4 +1,4 @@
-## 문화한상’은 한 상 가득 차려진 푸짐한 음식처럼 다양한 문화를 한 자리에 모아 외국인의 정착 생활을 돕는 플랫폼입니다.  
+## 문화한상은 한 상 가득 차려진 푸짐한 음식처럼 다양한 문화를 한 자리에 모아 외국인의 정착 생활을 돕는 플랫폼입니다.  
 
 ### 구성원
 | <a href="https://github.com/kar702"><img src="https://github.com/kar702.png" width="100px"><br>PM 김아름</a> | <a href="https://github.com/hyoseung-jang"><img src="https://github.com/hyoseung-jang.png" width="100px"><br>DE 장효승</a> | <a href="https://github.com/E2YunJeong"><img src="https://github.com/E2YunJeong.png" width="100px"><br>FE 이윤정</a> | <a href="https://github.com/masiljangajji"><img src="https://github.com/masiljangajji.png" width="100px"><br>BE 이승재</a> | <a href="https://github.com/celinayk"><img src="https://github.com/celinayk.png" width="100px"><br>BE 류연경</a> |
