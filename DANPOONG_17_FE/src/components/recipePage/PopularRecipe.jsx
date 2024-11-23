@@ -8,7 +8,6 @@ const PopularRecipes = () => {
   const dummyRecipes = [
     { id: 1, title: "제목1", description: "여기는 본문입니다.", bookmarked: false },
     { id: 2, title: "제목2", description: "여기는 본문입니다.", bookmarked: false },
-    { id: 3, title: "제목3", description: "여기는 본문입니다.", bookmarked: false },
   ];
 
   // 레시피 데이터 상태
