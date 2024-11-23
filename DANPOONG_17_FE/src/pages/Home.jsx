@@ -74,7 +74,7 @@ export const Home = () => {
           <h2>미르미님을 위한 오늘의 음식 추천</h2>
           <p>제외하고 싶은 재료를 아래에서 선택해보세요</p>
           <div className="filter-buttons">
-            {["소고기", "돼지고기", "닭고기", "해산물", "마늘", "우유"].map((ingredient) => (
+            {["소고기", "돼지고기", "닭고기", "해산물", "달걀", "우유"].map((ingredient) => (
               <button
                 key={ingredient}
                 onClick={() => handleIngredientClick(ingredient)}
