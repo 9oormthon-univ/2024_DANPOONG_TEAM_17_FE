@@ -112,7 +112,7 @@ export const Home = () => {
         </section>
       </main>
 
-      <button className="camera-button">
+      <button className="camera-button" onClick={() => alert("준비 중인 기능입니다.")}>
         <img src={cameraIcon} alt="Camera Icon" />
       </button>
 
