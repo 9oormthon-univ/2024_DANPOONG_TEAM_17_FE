@@ -30,7 +30,14 @@
         "recipe": "Recipe"
     },
     "Recipe": {
-
+        "search_placeholder": "Enter a search term",
+        "filter_country": "Country",
+        "filter_difficulty": "Difficulty",
+        "write_button": "Write",
+        "recent_recipes": "Recent Recipes",
+        "loading": "Loading...",
+        "no_recipes": "No recipes available.",
+        "author_name": "Mirmi"
     },
     "RecipeDetails": {
 

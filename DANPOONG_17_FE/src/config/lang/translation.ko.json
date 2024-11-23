@@ -30,7 +30,14 @@
         "recipe" : "레시피"
     },
     "Recipe": {
-
+        "search_placeholder" : "검색어를 입력하세요",
+        "filter_country" : "나라",
+        "filter_difficulty" : "난이도",
+        "write_button" : "글쓰기",
+        "recent_recipes" : "최근 레시피",
+        "loading" : "로딩 중...",
+        "no_recipes" : "레시피가 없습니다.",
+        "author_name" : "미르미"
     },
     "RecipeDetails": {
 

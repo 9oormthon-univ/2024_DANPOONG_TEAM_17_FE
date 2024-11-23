@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import '../styles/Header.css';
 
@@ -10,7 +10,7 @@ const Header = () => {
     const { i18n } = useTranslation();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState('한국어');
-  
+
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
@@ -20,7 +20,16 @@ const Header = () => {
       setSelectedLanguage(language);
       setIsDropdownOpen(false);
       i18n.changeLanguage(languageCode); // 언어 변경
+      localStorage.setItem('i18nextLng', languageCode);
     };
+
+    useEffect(() => {
+      // 페이지가 로드될 때 localStorage에 저장된 언어로 설정
+      const storedLanguage = localStorage.getItem("i18nextLng");
+      if (storedLanguage) {
+        i18n.changeLanguage(storedLanguage); // 저장된 언어로 i18next 설정
+      }
+    }, [i18n]);
   
     return (
       <header className="header">
