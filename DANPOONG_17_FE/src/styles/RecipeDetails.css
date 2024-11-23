@@ -1,146 +1,196 @@
 .recipe-details-page {
-    padding: 16px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-  }
-  
-  .details-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .back-btn img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
-  
-  .recipe-info {
-    text-align: center;
-    margin-bottom: 16px;
-  }
-  
-  .recipe-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
-  
-  .recipe-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-  
-  .recipe-title h2 {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .bookmark-icon {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .recipe-tags {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-  }
-  
-  .tag {
-    background-color: #eee;
-    padding: 4px 8px;
-    border-radius: 16px;
-    font-size: 12px;
-  }
-  
-  .ingredients {
-    margin-bottom: 16px;
-  }
-  
-  .ingredients-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .ingredients-table th, .ingredients-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  .instructions {
-    margin-bottom: 16px;
-  }
-  
-  .steps {
-    list-style-type: decimal;
-    padding-left: 20px;
-  }
-  
-  .steps li {
-    margin-bottom: 8px;
-  }
-  
-  .related-products {
-    margin-bottom: 16px;
-  }
-  
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .product-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
-  
-  .comments {
-    margin-bottom: 16px;
-  }
-  
-  .comment {
-    margin-bottom: 8px;
-  }
-  
-  .comment-author {
-    font-weight: bold;
-  }
-  
-  .comment-date {
-    font-size: 12px;
-    color: #777;
-  }
-  
-  .comment-content {
-    margin-top: 4px;
-  }
-  
-  .add-comment textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .submit-btn {
-    background-color: #8b1a10;
-    color: #fff;
-    padding: 8px 16px;
+  padding: 16px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.details-header .back-btn {
+    position: absolute;
+    left: 16px; /* 버튼의 왼쪽 여백 */
+    background: none;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-  }
+}
+
+.details-header .back-btn img {
+    width: 20px;
+    height: 20px;
+    filter: invert(0.6); /* 아이콘 색상 조정 */
+}
+
+.details-header h1 {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
   
+}
+
+.recipe-info {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.recipe-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.recipe-title h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.recipe-tags {
+  display: flex;
+  gap: 12px;
+  justify-content: left;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.tag {
+  background-color: #f2f2f2;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+  border: 1px solid #ddd;
+}
+
+.ingredients {
+  margin-bottom: 24px;
+}
+
+.ingredients h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.ingredients-table {
+  width: 100%; /* 테이블을 화면 너비에 맞추기 */
+  border-collapse: collapse; /* 테두리 간격 제거 */
+}
+
+.ingredients-table th,
+.ingredients-table td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ingredients-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+
+.instructions {
+  margin-bottom: 24px;
+}
+
+.instructions h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.steps {
+  list-style-type: decimal;
+  margin-left: 20px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.steps li {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.related-products {
+  margin-bottom: 24px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments {
+  margin-bottom: 24px;
+}
+
+.comment {
+  margin-bottom: 16px;
+}
+
+.comment-author {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.comment-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.comment-content {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.add-comment textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  background-color: #8b1a10;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
