@@ -4,6 +4,7 @@
     min-height: 100vh;
     background-color: #ffffff; /* 배경색 */
     margin: 0 auto;
+    width: 500px;
   }
   
   .home-content {
