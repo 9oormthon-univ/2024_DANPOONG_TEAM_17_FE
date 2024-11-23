@@ -15,6 +15,10 @@ export const Recipe = () => {
     navigate('/recipe/search'); // 검색 페이지로 이동
   };
 
+  const handleRecipeClick = (id) => {
+    navigate(`/recipe/${id}`); // 특정 레시피의 상세 페이지로 이동
+  };
+
   // 더미 데이터
   const recentRecipes = [
     { id: 1, author: "미르미", time: "1분 전", title: "소고기묵국", tags: ["대한민국", "국"], image: mark_off },
@@ -46,7 +50,11 @@ export const Recipe = () => {
       <section className="recent-recipes">
         <h2>최근 레시피</h2>
         {recentRecipes.map((recipe) => (
-          <div key={recipe.id} className="recent-recipe-card">
+            <div
+              key={recipe.id}
+              className="recent-recipe-card"
+              onClick={() => handleRecipeClick(recipe.id)} // 클릭 이벤트 추가
+            >
             <div className="recent-recipe-header">
               <div className="author-info">
                 <div className="author-avatar" /> {/* 아바타용 div */}

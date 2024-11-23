@@ -1,0 +1,146 @@
+.recipe-details-page {
+    padding: 16px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+  }
+  
+  .details-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .back-btn img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .recipe-info {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .recipe-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .recipe-title h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .bookmark-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .recipe-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .tag {
+    background-color: #eee;
+    padding: 4px 8px;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+  
+  .ingredients {
+    margin-bottom: 16px;
+  }
+  
+  .ingredients-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .ingredients-table th, .ingredients-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .instructions {
+    margin-bottom: 16px;
+  }
+  
+  .steps {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+  
+  .steps li {
+    margin-bottom: 8px;
+  }
+  
+  .related-products {
+    margin-bottom: 16px;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .comments {
+    margin-bottom: 16px;
+  }
+  
+  .comment {
+    margin-bottom: 8px;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+  }
+  
+  .comment-date {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .comment-content {
+    margin-top: 4px;
+  }
+  
+  .add-comment textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .submit-btn {
+    background-color: #8b1a10;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
