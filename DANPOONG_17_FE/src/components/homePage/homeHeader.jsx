@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import subtitleIcon from "../../assets/home/logo2.png";
 import locationIcon from "../../assets/home/place.png";
 import "./homeHeader.css";
 
 const HomeHeader = () => {
+  const { t } = useTranslation(); // 번역 함수 가져오기
   const [location, setLocation] = useState("위치를 가져오는 중...");
 
   useEffect(() => {
@@ -15,11 +17,11 @@ const HomeHeader = () => {
         },
         (error) => {
           console.error("Error fetching location:", error);
-          setLocation("위치를 확인할 수 없습니다.");
+          setLocation(t("HomeHeader.errorLocation"));
         }
       );
     } else {
-      setLocation("Geolocation을 지원하지 않는 브라우저입니다.");
+      setLocation(t("HomeHeader.notSupportLocation"));
     }
   }, []);
 
@@ -43,18 +45,18 @@ const HomeHeader = () => {
         const locationText = `${address.region_1depth_name} ${address.region_2depth_name} ${address.region_3depth_name}`;
         setLocation(locationText);
       } else {
-        setLocation("주소를 가져올 수 없습니다.");
+        setLocation(t("HomeHeader.can'tGetLocation"));
       }
     } catch (error) {
       console.error("Error fetching address from Kakao API:", error);
-      setLocation("주소를 가져올 수 없습니다.");
+      setLocation(t("HomeHeader.can'tGetLocation"));
     }
   };
 
   return (
     <header className="home-header">
       <div className="header-subtitle">
-        <p className="subtitle">밥상에서<br></br>시작되는 한국 생활</p>
+        <p className="subtitle">{t("HomeHeader.subTitle1")}<br></br>{t("HomeHeader.subTitle2")}</p>
         <img src={subtitleIcon} alt="Subtitle Icon" className="subtitle-icon" />
       </div>
       <div className="header-location">
