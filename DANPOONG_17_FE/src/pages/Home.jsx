@@ -103,7 +103,6 @@ export const Home = () => {
                     alt={food.name}
                   />
                   <p>{food.name}</p>
-                  <p className="food-description">{food.explanation}</p>
                 </div>
               ))
             ) : (

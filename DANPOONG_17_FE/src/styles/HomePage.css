@@ -107,15 +107,15 @@
   }
   
   .food-item img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 8px;
   }
   
   .food-item p {
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 18px;
     color: #333;
   }
   
