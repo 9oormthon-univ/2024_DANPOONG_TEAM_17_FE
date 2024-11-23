@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/RecipeSearch.css';
 import searchIcon from '../assets/recipe/search.png';
 import closeIcon from '../assets/recipe/cancel.png';
@@ -7,13 +8,21 @@ import backIcon from '../assets/recipe/화살표.png';
 export const Search = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  // const handleInputChange = (e) => {
+  //   setSearchTerm(e.target.value);
+  // };
 
   const clearSearch = () => {
     setSearchTerm('');
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim() !== '') {
+      // 검색 결과 페이지로 이동
+      navigate('/recipe/search/result');
+    }
   };
 
   const filteredKeywords =
@@ -37,7 +46,8 @@ export const Search = () => {
             type="text"
             placeholder="검색어를 입력해주세요"
             value={searchTerm}
-            onChange={handleInputChange}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSearch()} // Enter 키 처리
             className="search-input"
           />
           {searchTerm && (
