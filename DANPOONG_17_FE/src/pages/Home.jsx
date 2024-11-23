@@ -1,27 +1,51 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 import { apiUrl } from '../axios/apiUrl';
+import axios from "axios";
 import Header from '../components/Header';
 import '../styles/HomePage.css';
 import FoodDetailModal from '../components/homePage/foodDetailModal';
 import HomeHeader from '../components/homePage/homeHeader';
-//import imageMap from '../components/homePage/imageMap';
 
-//import dummy_img from '../assets/dummy/계란찜.jpg';
 import cameraIcon from '../assets/home/camera2.png';
 
 export const Home = () => {
+  const { t, i18n } = useTranslation(); // 번역 함수 가져오기
   const [foods, setFoods] = useState([]); // 음식 리스트 상태
   const [selectedFood, setSelectedFood] = useState(null); // 선택된 음식 상태
   const [selectedIngredients, setSelectedIngredients] = useState([]); // 선택된 음식 상태
 
-  // 더미 데이터
-  // const dummyData = [
-  //   { id: 1, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-  //   { id: 2, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-  //   { id: 3, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-  //   { id: 4, name: '계란찜', img: dummy_img, description: '부드럽고 맛있는 계란찜', ingredients: '달걀, 물, 소금' },
-  // ];
+  const ingredients = [
+    { key: "ingredient_btn_1", value: "소고기" },
+    { key: "ingredient_btn_2", value: "돼지고기" },
+    { key: "ingredient_btn_3", value: "닭고기" },
+    { key: "ingredient_btn_4", value: "해산물" },
+    { key: "ingredient_btn_5", value: "달걀" },
+    { key: "ingredient_btn_6", value: "우유" },
+  ];
 
+  // Google Translate API를 호출하여 텍스트 번역
+  const translateText = async (text, targetLanguage = "en") => {
+    try {
+      const response = await axios.post(
+        "https://translation.googleapis.com/language/translate/v2",
+        null,
+        {
+          params: {
+            q: text,
+            target: targetLanguage,
+            source: "ko",
+            key: import.meta.env.VITE_GOOGLE_TRANSLATE_API_KEY, // Google Translate API 키
+          },
+        }
+      );
+      return response.data.data.translations[0].translatedText;
+    } catch (error) {
+      console.error("Translation error:", error);
+      return text; // 번역 실패 시 원본 텍스트 반환
+    }
+  };
+  
     const fetchFoods = async (excludedIngredients = '') => {
       try {
         const keyword = excludedIngredients ? excludedIngredients.join(',') : '""';
@@ -35,8 +59,21 @@ export const Home = () => {
         const response = await apiUrl.get('/api/foods/search', {params}); // authHttp 사용
         const foodData = response.data.content;
         
-        console.log("Fetched foods:", foodData);
-        setFoods(foodData); // API 응답 데이터를 foods 상태로 설정
+        if (i18n.language === "en") {
+          // 영어일 경우 번역
+          const translatedFoods = await Promise.all(
+            foodData.map(async (food) => ({
+              ...food,
+              name: await translateText(food.name, "en"),
+              explanation: await translateText(food.explanation, "en"),
+              ingredients: await translateText(food.ingredients, "en"),
+            }))
+          );
+          setFoods(translatedFoods);
+        } else {
+          // 한국어 데이터를 그대로 사용
+          setFoods(foodData);
+        }
       } catch (error) {
         console.error('Failed to fetch foods:', error);
       }
@@ -46,7 +83,7 @@ export const Home = () => {
 
   useEffect(() => {
     fetchFoods();
-  }, []);
+  }, [i18n.language]); // 언어가 변경될 때마다 데이터 다시 로드
 
   // 재료 버튼 클릭 핸들러
   const handleIngredientClick = (ingredient) => {
@@ -71,18 +108,18 @@ export const Home = () => {
       <main className="home-content">
 
         <section className="food-recommendation">
-          <h2>미르미님을 위한 오늘의 음식 추천</h2>
-          <p>아래 필터를 누르면 재료를 제외할 수 있어요</p>
+          <h2>{t("Home.home_ingredient1")}</h2>
+          <p>{t("Home.home_ingredient2")}</p>
           <div className="filter-buttons">
-            {["소고기", "돼지고기", "닭고기", "해산물", "달걀", "우유"].map((ingredient) => (
+            {ingredients.map((ingredient) => (
               <button
-                key={ingredient}
-                onClick={() => handleIngredientClick(ingredient)}
+                key={ingredient.key} // 유일한 키 값 사용
+                onClick={() => handleIngredientClick(ingredient.value)} // 값 전달
                 className={`filter-button ${
-                  selectedIngredients.includes(ingredient) ? "active" : ""
+                  selectedIngredients.includes(ingredient.value) ? "active" : ""
                 }`}
-                >
-                {ingredient}
+              >
+                {t(`Home.${ingredient.key}`)} {/* 번역된 텍스트 */}
               </button>
             ))}
           </div>
@@ -106,7 +143,7 @@ export const Home = () => {
                 </div>
               ))
             ) : (
-              <p>추천할 음식이 없습니다.</p> // 필터링된 결과가 없을 경우 메시지 출력
+              <p>{t("Home.no_food")}</p> // 필터링된 결과가 없을 경우 메시지 출력
             )}
           </div>
         </section>

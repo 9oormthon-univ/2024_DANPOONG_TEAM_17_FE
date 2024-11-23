@@ -13,7 +13,18 @@
         "subTitle1": "밥상에서",
         "subTitle2": "시작되는 한국 생활"
     },
-    "HomeHeFoodDetailModalader": {
+    "Home": {
+        "home_ingredient1" : "미르미님을 위한 오늘의 음식 추천",
+        "home_ingredient2" : "아래 필터를 누르면 재료를 제외할 수 있어요",
+        "ingredient_btn_1" : "소고기",
+        "ingredient_btn_2" : "돼지고기",
+        "ingredient_btn_3" : "닭고기",
+        "ingredient_btn_4" : "해산물",
+        "ingredient_btn_5" : "달걀",
+        "ingredient_btn_6" : "우유",
+        "no_food" : "추천할 음식이 없습니다."
+    },
+    "HomeFoodDetailModalader": {
 
     },
     "Recipe": {

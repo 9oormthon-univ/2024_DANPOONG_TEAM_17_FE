@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import '../styles/Header.css';
 
 import header_logo from '../assets/home/logo1.png';
@@ -6,6 +7,7 @@ import header_language from '../assets/home/Globe.png';
 
 
 const Header = () => {
+    const { i18n } = useTranslation();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState('한국어');
   
@@ -14,9 +16,10 @@ const Header = () => {
     };
   
     const handleLanguageSelect = (language) => {
+      const languageCode = language === "한국어" ? "ko" : "en"; // 언어 코드 설정
       setSelectedLanguage(language);
       setIsDropdownOpen(false);
-      // 추후 다국어 라이브러리와 연동하여 언어를 변경하는 로직을 추가
+      i18n.changeLanguage(languageCode); // 언어 변경
     };
   
     return (
