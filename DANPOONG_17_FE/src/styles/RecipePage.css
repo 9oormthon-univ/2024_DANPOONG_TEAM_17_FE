@@ -1,3 +1,8 @@
+.recipe-page {
+  width: 500px;
+  background-color: #fff;
+}
+
 .recent-recipe-card {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -9,7 +14,6 @@
   margin-bottom: 16px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: relative; /* 북마크 아이콘 위치 설정 */
-  width: 500;
 }
 
 .recent-recipe-header {
