@@ -64,3 +64,55 @@
     color: #777;
   }
   
+  .search-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    background-color: #f9f9f9;
+    flex: 1;
+  }
+  
+  .search-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+  }
+
+  .back-btn {
+    background: none;
+    border: none;
+    margin-right: 8px;
+  }
+
+  .back-btn img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .clear-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .clear-btn img {
+    width: 16px;
+    height: 16px;
+  }

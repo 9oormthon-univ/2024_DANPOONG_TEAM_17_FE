@@ -17,7 +17,7 @@ export const Search = () => {
   const handleSearch = () => {
     if (searchTerm.trim() !== '') {
       // 검색 결과 페이지로 이동
-      navigate('/recipe/search/result');
+      navigate(`/recipe/search/result?query=${encodeURIComponent(searchTerm)}`);
     }
   };
 
