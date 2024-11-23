@@ -7,6 +7,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://52.78.33.37:8080', // 백엔드 API 주소
+        changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // "/api" 제거
       },
     },
