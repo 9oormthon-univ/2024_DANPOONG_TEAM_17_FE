@@ -84,7 +84,7 @@ export const RecipeSearchResult = () => {
       </header>
 
       <div className="header-left">
-          <span className="result-count">총 {results.length}개 검색결과</span>
+          <span className="result-count">총 {results.length}개 검색결과 </span>
           <span className="current-search">"{searchQuery}" 검색</span> {/* 검색어 표시 */}
       </div>
       <div className="header-right">
