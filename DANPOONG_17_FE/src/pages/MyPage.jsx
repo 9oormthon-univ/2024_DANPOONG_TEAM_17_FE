@@ -26,7 +26,7 @@ export const My = () => {
           <img
             src={alertIcon}
             alt="Notification Icon"
-            className="icon-image"
+            className="-imageicon"
           />
           <p>알림</p>
         </div>

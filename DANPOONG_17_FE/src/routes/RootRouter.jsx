@@ -8,6 +8,7 @@ import {My} from '../pages/MyPage';
 import {Search} from '../pages/RecipeSearch';
 import {RecipeSearchResult} from '../pages/RecipeSearchResult';
 import {RecipeDetails} from '../pages/RecipeDetails';
+import {RecipePost} from '../pages/RecipePost';
 
 /*
     < 중첩 라우터 관리 >
@@ -47,6 +48,10 @@ const router = createBrowserRouter( [
             {
                 path: '/recipe/:id',
                 element: <RecipeDetails />
+            },
+            {
+                path: '/recipe/post',
+                element: <RecipePost />
             }
         ],
     },

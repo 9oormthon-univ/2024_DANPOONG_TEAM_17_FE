@@ -21,6 +21,10 @@ export const Recipe = () => {
     navigate(`/recipe/${id}`);
   };
 
+  const handlePostClick = () => {
+    navigate('/recipe/post');
+  };
+
   // API 호출
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -49,7 +53,7 @@ export const Recipe = () => {
             <button>나라</button>
             <button>난이도</button>
           </div>
-          <button className="write-button">글쓰기</button>
+          <button className="write-button" onClick={handlePostClick}>글쓰기</button>
         </div>
       </header>
 

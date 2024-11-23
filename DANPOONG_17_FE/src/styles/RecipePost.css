@@ -1,0 +1,122 @@
+.recipe-post {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+  
+  .recipe-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .back-button{
+    background: none;
+    border: none;
+    margin-right: 8px;
+  }
+
+  .submit-button {
+  padding: 8px 16px;
+  background-color: #8b1a10; /* 버튼 배경색 */
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  }
+  
+  .recipe-post-main {
+    padding: 16px 0;
+  }
+  
+  .recipe-title-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropdowns {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .dropdown {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+  }
+  
+  .ingredients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+  }
+  
+  .ingredients-table th,
+  .ingredients-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .ingredient-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-button,
+  .remove-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #8b1a10;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-button {
+    margin-top: 8px;
+  }
+  
+  .description-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .photo-upload {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .photo-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #8b1a10;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
