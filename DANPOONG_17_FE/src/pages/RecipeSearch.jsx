@@ -28,7 +28,7 @@ export const Search = () => {
 
   const filteredKeywords =
     searchTerm.length > 0
-      ? ['육개장', '육전', '육회', '육수', '육라면'].filter((keyword) =>
+      ? ['김치', '김치만두', '김치전', '김치찌개'].filter((keyword) =>
           keyword.includes(searchTerm)
         )
       : [];

@@ -1,15 +1,22 @@
 import '../styles/RecipeDetails.css';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import backIcon from '../assets/recipe/화살표.png';
 import dummy_img from '../assets/dummy/계란찜.jpg'
 
 export const RecipeDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+    // 뒤로가기 버튼 클릭 시 레시피 페이지로 이동
+    const handleBackClick = () => {
+        navigate('/recipe');
+    };
 
   return (
     <div className="recipe-details-page">
       <header className="details-header">
-        <button className="back-btn">
+        <button className="back-btn" onClick={handleBackClick}>
           <img src={backIcon} alt="뒤로가기" />
         </button>
         <h1>레시피</h1>
