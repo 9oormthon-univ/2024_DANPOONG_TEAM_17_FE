@@ -60,7 +60,7 @@ export const Search = () => {
         </div>
       </header>
 
-      {filteredKeywords.length > 0 && (
+      {filteredKeywords.length > 0 ? (
         <section className="filtered-results">
           {filteredKeywords.map((keyword, index) => {
             const matchIndex = keyword.indexOf(searchTerm);
@@ -79,6 +79,10 @@ export const Search = () => {
               </div>
             );
           })}
+        </section>
+        ) : (
+        <section className="filtered-results empty">
+          <p className="empty-placeholder">추천 검색어가 없습니다.</p>
         </section>
       )}
 
