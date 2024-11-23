@@ -10,10 +10,6 @@ export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
-  // const handleInputChange = (e) => {
-  //   setSearchTerm(e.target.value);
-  // };
-
   const clearSearch = () => {
     setSearchTerm('');
   };
@@ -23,6 +19,11 @@ export const Search = () => {
       // 검색 결과 페이지로 이동
       navigate('/recipe/search/result');
     }
+  };
+
+  // 뒤로가기 버튼 클릭 시 레시피 페이지로 이동
+  const handleBackClick = () => {
+    navigate('/recipe');
   };
 
   const filteredKeywords =
@@ -38,7 +39,7 @@ export const Search = () => {
   return (
     <div className="recip-search-page">
       <header className="search-header">
-        <button className="back-btn">
+        <button className="back-btn" onClick={handleBackClick}>
           <img src={backIcon} alt="뒤로가기" />
         </button>
         <div className="search-bar">
