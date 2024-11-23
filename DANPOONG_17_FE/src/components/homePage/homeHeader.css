@@ -13,7 +13,7 @@
   }
   
   .subtitle {
-    font-size: 18px;
+    font-size: 32px;
     font-weight: bold;
     color: #333;
     line-height: 1.5;
@@ -32,13 +32,13 @@
     margin-top: 10px;
     gap: 5px;
   }
-  
+
   .location-icon {
-    width: 16px;
-    height: 16px;
+    width: 30px;
+    height: 30px;
   }
   
   .location {
-    font-size: 14px;
+    font-size: 15px;
     color: #666;
   }
